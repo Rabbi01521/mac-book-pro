@@ -5,14 +5,14 @@ function memory(gb) {
         const extraCostMemory = document.getElementById('extra-memory-cost');
         const extraCost = 0;
         extraCostMemory.innerText = extraCost;
-        Number(extraCostMemory.innerText);
+        return Number(extraCostMemory.innerText);
 
     }
     else {
         const extraCostMemory = document.getElementById('extra-memory-cost');
         const extraCost = 180;
         extraCostMemory.innerText = extraCost;
-        Number(extraCostMemory.innerText);
+        return Number(extraCostMemory.innerText);
 
     }
 
@@ -24,20 +24,20 @@ function storage(gb) {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 0;
         extraStorageCost.innerText = extraCost;
-        Number(extraStorageCost.innerText);
+        return Number(extraStorageCost.innerText);
     }
     else if (gb == '512gb') {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 100;
         extraStorageCost.innerText = extraCost;
-        Number(extraStorageCost.innerText);
+        return Number(extraStorageCost.innerText);
 
     }
     else {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 180;
         extraStorageCost.innerText = extraCost;
-        Number(extraStorageCost.innerText);
+        return Number(extraStorageCost.innerText);
 
     }
 }
@@ -49,14 +49,14 @@ function shippingCharge(charge) {
         const charge = document.getElementById('shipping-charge');
         const cost = 0;
         charge.innerText = cost;
-        Number(charge.innerText);
+        return Number(charge.innerText);
 
     }
     else {
         const charge = document.getElementById('shipping-charge');
         const cost = 20;
         charge.innerText = cost;
-        Number(charge.innerText);
+        return Number(charge.innerText);
     }
 }
 
