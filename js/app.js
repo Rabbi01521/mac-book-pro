@@ -5,13 +5,15 @@ function memory(gb) {
         const extraCostMemory = document.getElementById('extra-memory-cost');
         const extraCost = 0;
         extraCostMemory.innerText = extraCost;
-        return Number(extraCostMemory.innerText);
+        Number(extraCostMemory.innerText);
+
     }
     else {
         const extraCostMemory = document.getElementById('extra-memory-cost');
         const extraCost = 180;
         extraCostMemory.innerText = extraCost;
-        return Number(extraCostMemory.innerText);
+        Number(extraCostMemory.innerText);
+
     }
 
 }
@@ -22,68 +24,111 @@ function storage(gb) {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 0;
         extraStorageCost.innerText = extraCost;
-        return Number(extraStorageCost.innerText);
+        Number(extraStorageCost.innerText);
     }
     else if (gb == '512gb') {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 100;
         extraStorageCost.innerText = extraCost;
-        return Number(extraStorageCost.innerText);
+        Number(extraStorageCost.innerText);
+
     }
     else {
         const extraStorageCost = document.getElementById('extra-storage-cost');
         const extraCost = 180;
         extraStorageCost.innerText = extraCost;
-        return Number(extraStorageCost.innerText);
+        Number(extraStorageCost.innerText);
+
     }
 }
 
-//
-function shippingCharge(charge){
+// shipping charge function
+function shippingCharge(charge) {
     document.getElementById(charge + '-shipping');
-    if(charge == 'free'){
+    if (charge == 'free') {
         const charge = document.getElementById('shipping-charge');
         const cost = 0;
         charge.innerText = cost;
-        return Number(charge.innerText);
+        Number(charge.innerText);
+
     }
-    else{
+    else {
         const charge = document.getElementById('shipping-charge');
         const cost = 20;
         charge.innerText = cost;
-        return Number(charge.innerText);
+        parseInt(charge.innerText);
     }
+}
+
+//total price functtion
+
+function total() {
+    const updateValue = document.getElementById('extra-memory-cost').innerText;
+    const updateStorageValue = document.getElementById('extra-storage-cost').innerText;
+    const updateChargeValue = document.getElementById('shipping-charge').innerText;
+    const chargeTotal = parseInt(updateChargeValue)
+    const storageTotal = parseInt(updateStorageValue);
+    const updateTotal = parseInt(updateValue);
+    const totalText = document.getElementById('fixed-price').innerText;
+    const totalNumber = parseInt(totalText);
+    const total = updateTotal + totalNumber + storageTotal + chargeTotal;
+    let totalMemory = document.getElementById('total').innerText = total;
+    document.getElementById('promo-total').innerText = totalMemory;
 }
 
 // memory function call part
 document.getElementById('memory-8gb').addEventListener('click', function () {
-    const memoryCost = memory('8gb');
+    memory('8gb');
+    total();
 });
 
 document.getElementById('memory-16gb').addEventListener('click', function () {
-    const memoryCost = memory('16gb');
+    memory('16gb');
+    total();
 });
 
 // storage function call part
 
 document.getElementById('storage-256gb').addEventListener('click', function () {
-    const storageCost = storage('256gb');
+    storage('256gb');
+    total();
 });
 
 document.getElementById('storage-512gb').addEventListener('click', function () {
-    const storageCost = storage('512gb');
+    storage('512gb');
+    total();
 });
 
 document.getElementById('storage-1tb').addEventListener('click', function () {
-    const storageCost = storage('1tb');
+    storage('1tb');
+    total();
 });
 
 // Choose Your delivery option function call
 
-document.getElementById('free-shipping').addEventListener('click', function(){
-    const free = shippingCharge('free');
+document.getElementById('free-shipping').addEventListener('click', function () {
+    shippingCharge('free');
+    total();
 });
 
-document.getElementById('costly-shipping').addEventListener('click', function(){
-    const cost = shippingCharge('costly');
+document.getElementById('costly-shipping').addEventListener('click', function () {
+    shippingCharge('costly');
+    total();
+});
+
+// promo part
+
+document.getElementById('promo-apply').addEventListener('click', function () {
+    const promoCode = document.getElementById('promo-input').value;
+    if (promoCode == '') {
+        document.getElementById('Error-massage').innerText = 'Please Enter valid input';
+    }
+    if (promoCode == 'stevekaku') {
+        const totalText = document.getElementById('promo-total').innerText;
+        let afterPromoTotal = (totalText * .2);
+        const total = parseFloat(totalText);
+        let totalCost = (total - afterPromoTotal);
+        document.getElementById('promo-total').innerText = totalCost;
+        document.getElementById('promo-apply').disabled = true;
+    }
 });

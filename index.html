@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>24-inch iMac with Apple M1 chip</title>
     <!-- tailwind css  -->
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
@@ -110,7 +110,7 @@
               </div>
               <div>
                 <h1 class="border-b my-2 text-2xl font-bold">
-                  $ <span>1299</span>
+                  $ <span id="fixed-price">1299</span>
                 </h1>
                 <h1 class="border-b my-2 text-2xl font-bold">
                   $ <span id="extra-memory-cost">0</span>
@@ -122,17 +122,17 @@
                   $ <span id="shipping-charge">0</span>
                 </h1>
                 <h1 class="border-b my-2 text-2xl font-bold">
-                  $ <span>1299</span>
+                  $ <span id="total">1299</span>
                 </h1>
               </div>
             </div>
-            <!-- pomo code part -->
+            <!-- promo code part -->
             <div>
               <input
                 class="border border-gray-400 py-2 px-4 rounded"
                 type="text"
                 name=""
-                id=""
+                id="promo-input"
               />
               <button
                 class="
@@ -143,6 +143,7 @@
                   text-white
                   rounded
                 "
+                id="promo-apply"
               >
                 Apply
               </button>
@@ -151,7 +152,10 @@
         </div>
         <hr />
         <div class="text-center">
-          <h1 class="text-4xl mt-2 font-bold">Total: $<span>1299</span></h1>
+          <p id="Error-massage"></p>
+          <h1 class="text-4xl mt-2 font-bold">
+            Total: $<span id="promo-total">1299</span>
+          </h1>
         </div>
       </section>
     </main>
