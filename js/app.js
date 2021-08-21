@@ -56,7 +56,7 @@ function shippingCharge(charge) {
         const charge = document.getElementById('shipping-charge');
         const cost = 20;
         charge.innerText = cost;
-        parseInt(charge.innerText);
+        Number(charge.innerText);
     }
 }
 
