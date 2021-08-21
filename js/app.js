@@ -123,7 +123,7 @@ document.getElementById('promo-apply').addEventListener('click', function () {
     if (promoCode == '') {
         document.getElementById('Error-massage').innerText = 'Please Enter valid input';
     }
-    if (promoCode == 'stevekaku') {
+    else if (promoCode == 'stevekaku') {
         const totalText = document.getElementById('promo-total').innerText;
         let afterPromoTotal = (totalText * .2);
         const total = parseFloat(totalText);
